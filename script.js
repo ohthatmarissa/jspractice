@@ -254,7 +254,7 @@ console.log(names.indexOf('Merle'));
 
 //coding challeng 3 tip calculator
 
-function tipCalc(bill) {
+/*function tipCalc(bill) {
     var percent;
     if (bill < 50) {
         percent = .2;
@@ -280,4 +280,52 @@ var finalValue = [bills[0] + tips[0],
 bills[1] + tips[1],
 bills[2] + tips[2]];
 
-console.log(finalValue);
+console.log(finalValue); */
+
+//Objects and Properties
+
+//object literal
+/*var Marissa = {
+    firstName: 'Marissa',
+    lastName: 'Holiday',
+    birthYear: 1990,
+    family: ['Rob', 'Petunia', 'Merle'],
+    job: 'software developer',
+    isMarried: false
+};
+
+console.log(Marissa.lastName);
+console.log(Marissa);
+var x = 'birthYear';
+
+console.log(Marissa[x]);
+
+Marissa.job = 'designer';
+console.log(Marissa);
+
+//new object syntax
+var Jane = new Object();
+Jane.name = 'Jane';
+Jane.lastName = 'Smith';
+console.log(Jane); */
+
+//Objects and methods
+
+/*var Marissa = {
+    firstName: 'Marissa',
+    lastName: 'Holiday',
+    birthYear: 1990,
+    family: ['Rob', 'Petunia', 'Merle'],
+    job: 'software developer',
+    isMarried: false,
+    calcAge: function (birthYear) {
+        this.age = 2020 - this.birthYear;
+    }
+};
+
+console.log(Marissa.calcAge());
+
+Marissa.calcAge();
+console.log(Marissa); */
+
+
