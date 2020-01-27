@@ -328,4 +328,43 @@ console.log(Marissa.calcAge());
 Marissa.calcAge();
 console.log(Marissa); */
 
+//code challenge 4 
+//how to find bmi and who has higher bmi
+
+
+var kelly = {
+    fullName: 'Kelly Taylor',
+    mass: 80,
+    height: 1.83,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+    }
+}
+var donna = {
+    fullName: 'Donna Martin',
+    mass: 75,
+    height: 1.83,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi;
+    }
+}
+
+kelly.calcBMI();
+donna.calcBMI();
+console.log(kelly, donna);
+
+if (kelly.bmi > donna.bmi) {
+    console.log(kelly.fullName + ' has a higher BMI of ' + kelly.bmi);
+} else if (donna.bmi > kelly.bmi) {
+    console.log(donna.fullName + ' has a higher BMI of ' + donna.bmi);
+} else {
+    console.log('They have the same BMI');
+}
+
+//you can also .calcBMI() in the if/else if, like so...
+//if (kelly.calcBMI() > donna.calcBMI())
+
+
 
