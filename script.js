@@ -332,7 +332,7 @@ console.log(Marissa); */
 //how to find bmi and who has higher bmi
 
 
-var kelly = {
+/*var kelly = {
     fullName: 'Kelly Taylor',
     mass: 80,
     height: 1.83,
@@ -361,10 +361,59 @@ if (kelly.bmi > donna.bmi) {
     console.log(donna.fullName + ' has a higher BMI of ' + donna.bmi);
 } else {
     console.log('They have the same BMI');
-}
+}*/
 
 //you can also .calcBMI() in the if/else if, like so...
 //if (kelly.calcBMI() > donna.calcBMI())
+
+//Loops and iteration
+/*
+for (var i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+var brenda = ['Brenda', 'Walsh', 1980, 'actress', 'bossbitch'];
+for (var i = 0; i < brenda.length; i++) {
+    console.log(brenda[i]);
+}
+
+//while loop
+
+var i = 0;
+while (i < brenda.length) {
+    console.log(brenda[i]);
+    i++;
+}*/
+
+//continue and break statements 
+/*var brenda = ['Brenda', 'Walsh', 1980, 'actress', 'bossbitch'];
+for (var i = 0; i < brenda.length; i++) {
+    if (typeof brenda[i] !== 'string') continue;
+    console.log(brenda[i]);
+}
+
+for (var i = 0; i < brenda.length; i++) {
+    if (typeof brenda[i] !== 'string') break;
+    console.log(brenda[i]);
+}
+
+//looping backwards
+for (var i = brenda.length - 1; i >= 0; i--) {
+    console.log(brenda[i]);
+}*/
+
+//Coding Challenge 4
+
+var marissa = {
+    fullName: 'Marissa Holiday',
+    bills: [124, 48, 268, 180, 42],
+    calcTips: function () {
+        this.tips = [];
+        this.finalValues = [];
+
+        for (var i = 0; i < this.bills.length;  )
+    }
+}
 
 
 
