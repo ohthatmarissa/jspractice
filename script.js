@@ -402,9 +402,9 @@ for (var i = brenda.length - 1; i >= 0; i--) {
     console.log(brenda[i]);
 }*/
 
-//Coding Challenge 4
+//Coding Challenge 5
 
-var marissa = {
+/*var marissa = {
     fullName: 'Marissa Holiday',
     bills: [124, 48, 268, 180, 42],
     calcTips: function () {
@@ -432,7 +432,59 @@ var marissa = {
 }
 
 marissa.calcTips();
-console.log(marissa);
+console.log(marissa);*/
 
 
 
+//coding challange 7
+
+//iffy --immidietly invoked function to make the code private or add a scope so that other code won't interfere with this code
+(function () {
+
+    //this is the function constructor
+    function Question(question, answers, correct) {
+        this.question = question;
+        this.answers = answers;
+        this.correct = correct;
+    }
+
+    //this is the method for displaying questions 
+    Question.prototype.displayQuestion = function () {
+        console.log(this.question);
+        //this displays the answers
+        for (var i = 0; i < this.answers.length; i++) {
+            console.log(i + ': ' + this.answers[i]);
+        }
+    }
+
+    //method to see if answer is correct
+    Question.prototype.checkAnswer = function (ans) {
+        if (ans === this.correct) {
+            console.log('Correct Answer!');
+
+        } else {
+            console.log('Nope, try again');
+        }
+    }
+
+    //these are the questions with annswer and correct properties
+    var question1 = new Question('Do you love puppies?', ['Yes', 'No'], 0);
+    var question2 = new Question('What is your favorite ice cream flavor?', ['Vanilla', 'Chocolate', 'Cookies in Cream'], 1);
+    var question3 = new Question('What is your favorite color?', ['Pink', 'Purple', 'Green', 'Yellow'], 0);
+
+    //this sets the questions into an array to be randomly chosen from 
+    var questions = [question1, question2, question3];
+
+    //this picks a random question
+    var randomNumber = Math.floor(Math.random() * questions.length);
+
+    //call the displayQuestion method
+    questions[randomNumber].displayQuestion();
+
+    //prompt for the correct answer
+    var answer = parseInt(prompt('Please select an answer'));
+
+    //call the checkAnswer method
+    questions[randomNumber].checkAnswer(answer);
+
+})();
