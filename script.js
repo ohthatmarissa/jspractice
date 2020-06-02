@@ -439,7 +439,7 @@ console.log(marissa);*/
 //coding challange 7
 
 //iffy --immidietly invoked function to make the code private or add a scope so that other code won't interfere with this code
-(function () {
+/*(function () {
 
     //this is the function constructor
     function Question(question, answers, correct) {
@@ -448,7 +448,7 @@ console.log(marissa);*/
         this.correct = correct;
     }
 
-    //this is the method for displaying questions 
+    //this is the method for displaying questions
     Question.prototype.displayQuestion = function () {
         console.log(this.question);
         //this displays the answers
@@ -472,7 +472,7 @@ console.log(marissa);*/
     var question2 = new Question('What is your favorite ice cream flavor?', ['Vanilla', 'Chocolate', 'Cookies in Cream'], 1);
     var question3 = new Question('What is your favorite color?', ['Pink', 'Purple', 'Green', 'Yellow'], 0);
 
-    //this sets the questions into an array to be randomly chosen from 
+    //this sets the questions into an array to be randomly chosen from
     var questions = [question1, question2, question3];
 
     //this picks a random question
@@ -486,5 +486,91 @@ console.log(marissa);*/
 
     //call the checkAnswer method
     questions[randomNumber].checkAnswer(answer);
+
+})();
+*/
+
+//expert level code challenge
+
+(function () {
+
+    //this is the function constructor
+    function Question(question, answers, correct) {
+        this.question = question;
+        this.answers = answers;
+        this.correct = correct;
+    }
+
+    //this is the method for displaying questions 
+    Question.prototype.displayQuestion = function () {
+        console.log(this.question);
+        //this displays the answers
+        for (var i = 0; i < this.answers.length; i++) {
+            console.log(i + ': ' + this.answers[i]);
+        }
+    }
+
+    //method to see if answer is correct
+    Question.prototype.checkAnswer = function (ans, callback) {
+        var sc;
+
+        if (ans === this.correct) {
+            console.log('Correct Answer!');
+            sc = callback(true);
+
+        } else {
+            console.log('Nope, try again');
+            sc = callback(false);
+        }
+        this.displayScore(sc);
+    }
+
+    Question.prototype.displayScore = function (score) {
+        console.log('your score is ;' + score);
+        console.log('-----------------------------');
+    }
+
+    //these are the questions with annswer and correct properties
+    var question1 = new Question('Do you love puppies?', ['Yes', 'No'], 0);
+    var question2 = new Question('What is your favorite ice cream flavor?', ['Vanilla', 'Chocolate', 'Cookies in Cream'], 1);
+    var question3 = new Question('What is your favorite color?', ['Pink', 'Purple', 'Green', 'Yellow'], 0);
+
+
+
+    //this sets the questions into an array to be randomly chosen from 
+    var questions = [question1, question2, question3];
+
+    //a function that keeps score
+    function score() {
+        var sc = 0;
+        return function (correct) {
+            if (correct) {
+                sc++;
+            }
+            return sc;
+        }
+    }
+
+    var keepScore = score();
+
+    //this function allows for the prompt box to automatically pop back up with a new question after a question is answered
+    function nextQuestion() {
+        //this picks a random question
+        var randomNumber = Math.floor(Math.random() * questions.length);
+
+        //call the displayQuestion method
+        questions[randomNumber].displayQuestion();
+
+        //prompt for the correct answer
+        var answer = (prompt('Please select an answer'));
+
+        if (answer !== 'exit') {
+            //call the checkAnswer method
+            questions[randomNumber].checkAnswer(parseInt(answer), keepScore);
+            nextQuestion();
+        }
+
+    }
+    nextQuestion();
 
 })();
